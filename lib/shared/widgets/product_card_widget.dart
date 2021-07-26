@@ -1,7 +1,9 @@
+import 'package:carrinho_de_compras/models/product_model.dart';
 import 'package:flutter/material.dart';
 
 class ProductCardWidget extends StatelessWidget {
-  const ProductCardWidget({Key? key}) : super(key: key);
+  final Product product;
+  const ProductCardWidget(this.product, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -16,14 +18,16 @@ class ProductCardWidget extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
-              child: Image.asset("assets/images/eggs.png"),
+              height: 120,
+              width: 120,
+              child: Center(child: Image.asset(product.imagePath)),
             ),
             Text(
-              'Egg Chicken Red',
+              product.description,
               style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700),
             ),
             Text(
-              '4pcs, Price',
+              product.qtdDescription,
               style: TextStyle(
                   fontSize: 14,
                   // fontWeight: FontWeight.w700,
@@ -36,7 +40,7 @@ class ProductCardWidget extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  "R\$ 1.99",
+                  "R\$ ${product.value}",
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                 ),
                 Container(

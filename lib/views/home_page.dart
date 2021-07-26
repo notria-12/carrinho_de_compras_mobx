@@ -1,10 +1,44 @@
+import 'package:carrinho_de_compras/models/product_model.dart';
 import 'package:carrinho_de_compras/shared/widgets/product_card_widget.dart';
 import 'package:carrinho_de_compras/views/cart_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({Key? key}) : super(key: key);
+  HomePage({Key? key}) : super(key: key);
+
+  List<Product> products = [
+    Product(
+        imagePath: "assets/images/eggs.png",
+        description: "Egg Chicken Red",
+        value: 1.99,
+        qtdDescription: "4pcs, Price"),
+    Product(
+        imagePath: "assets/images/pepper.png",
+        description: "Bell Pepper Red",
+        value: 4.99,
+        qtdDescription: "4pkg, Price"),
+    Product(
+        imagePath: "assets/images/sprinte.png",
+        description: "Sprinte Can",
+        value: 2.25,
+        qtdDescription: "325ml, Price"),
+    Product(
+        imagePath: "assets/images/coca.png",
+        description: "Coca Cola Can",
+        value: 3.55,
+        qtdDescription: "325ml, Price"),
+    Product(
+        imagePath: "assets/images/orange_juice.png",
+        description: "Orange Juice",
+        value: 12.54,
+        qtdDescription: "2L, Price"),
+    Product(
+        imagePath: "assets/images/apple.png",
+        description: "Red Apple",
+        value: 4.55,
+        qtdDescription: "1kg, Price"),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -31,8 +65,12 @@ class HomePage extends StatelessWidget {
               child: StaggeredGridView.count(
                 crossAxisCount: 4,
                 padding: const EdgeInsets.all(2.0),
-                children: List.generate(6, (index) => ProductCardWidget()),
-                staggeredTiles: List.generate(6, (index) => ProductCardWidget())
+                children: products
+                    .map((product) => ProductCardWidget(product))
+                    .toList(),
+                staggeredTiles: products
+                    .map((product) => ProductCardWidget(product))
+                    .toList()
                     .map<StaggeredTile>((_) => StaggeredTile.fit(2))
                     .toList(),
                 mainAxisSpacing: 6.0,
