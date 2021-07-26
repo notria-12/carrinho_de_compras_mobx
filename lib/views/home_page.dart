@@ -1,4 +1,5 @@
 import 'package:carrinho_de_compras/shared/widgets/product_card_widget.dart';
+import 'package:carrinho_de_compras/views/cart_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
@@ -13,7 +14,12 @@ class HomePage extends StatelessWidget {
         title: Text('Home'),
         centerTitle: true,
         actions: [
-          IconButton(onPressed: () {}, icon: Icon(Icons.shopping_cart))
+          IconButton(
+              onPressed: () {
+                Navigator.of(context)
+                    .push(MaterialPageRoute(builder: (context) => CartPage()));
+              },
+              icon: Icon(Icons.shopping_cart))
         ],
       ),
       body: Padding(
