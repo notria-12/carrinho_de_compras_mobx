@@ -9,7 +9,7 @@ class ProductCardWidget extends StatelessWidget {
       elevation: 2.0,
       borderRadius: BorderRadius.circular(10),
       child: Container(
-        height: 250,
+        height: 230,
         width: 150,
         padding: EdgeInsets.all(8.0),
         child: Column(
@@ -30,7 +30,7 @@ class ProductCardWidget extends StatelessWidget {
                   color: Color.fromRGBO(124, 124, 124, 1)),
             ),
             SizedBox(
-              height: 30,
+              height: 15,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -40,8 +40,8 @@ class ProductCardWidget extends StatelessWidget {
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                 ),
                 Container(
-                  height: 45,
-                  width: 45,
+                  height: 40,
+                  width: 40,
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(17),
                       color: Color.fromRGBO(83, 177, 117, 1)),
